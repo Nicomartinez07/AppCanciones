@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lista de discos</title>
+    <link
+      rel="stylesheet"
+      tpye="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondosDiscos">
+    <h1 class="centrado">Discos:</h1>
+    <img class="caja-imagen" src="/discos/imagenes/Disco_de_Vinilo.webp" />
+    <ul class="colorListaDiscos" style="list-style: none">
+      {% for albums in discos %}
+      <li>{{ albums['title'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

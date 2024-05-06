@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lista de Generos</title>
+    <link
+      rel="stylesheet"
+      tpye="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondosGeneros">
+    <h1 class="centrado">Genero:</h1>
+    <ul class="colorListaGeneros" style="list-style: none">
+      {% for genres in generos %}
+      <li>{{ genres['name'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

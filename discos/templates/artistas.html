@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lista de Artistas</title>
+    <link
+      rel="stylesheet"
+      tpye="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondosArtistas">
+    <h1 class="centrado">Artistas:</h1>
+    <ul class="colorListaArtistas" style="list-style: none">
+      {% for artists in artistas %}
+      <li>{{ artists['name'] }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

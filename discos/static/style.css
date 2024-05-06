@@ -1,0 +1,45 @@
+/*Discos ---------------------------------------------------------------------------------- */
+.colorListaDiscos {
+  background-color: #ca8787;
+}
+
+.colorFondosDiscos {
+  background-color: #e1acac;
+}
+
+/*Artistas ----------------------------------------------------------------------------------*/
+.colorListaArtistas {
+  background-color: #153448;
+}
+
+.colorFondosArtistas {
+  background-color: #3c5b6f;
+}
+
+/*Canciones ----------------------------------------------------------------------------------*/
+.colorListaCanciones {
+  background-color: #d8ae7e;
+}
+
+.colorFondosCanciones {
+  background-color: #f8c794;
+}
+
+/*Generos --------------------------------------------------------------------------------------*/
+.colorListaGeneros {
+  background-color: #71c9ce;
+}
+
+.colorFondosGeneros {
+  background-color: #a6e3e9;
+}
+
+.centrado {
+  text-align: center;
+}
+
+/* imagen*/
+
+.caja-imagen {
+  width: 100%;
+}
