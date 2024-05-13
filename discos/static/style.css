@@ -7,15 +7,6 @@
   background-color: #e1acac;
 }
 
-/*Artistas ----------------------------------------------------------------------------------*/
-.colorListaArtistas {
-  background-color: #153448;
-}
-
-.colorFondosArtistas {
-  background-color: #3c5b6f;
-}
-
 /*Canciones ----------------------------------------------------------------------------------*/
 .colorListaCanciones {
   background-color: #d8ae7e;
@@ -23,15 +14,6 @@
 
 .colorFondosCanciones {
   background-color: #f8c794;
-}
-
-/*Generos --------------------------------------------------------------------------------------*/
-.colorListaGeneros {
-  background-color: #71c9ce;
-}
-
-.colorFondosGeneros {
-  background-color: #a6e3e9;
 }
 
 .centrado {
@@ -42,4 +24,30 @@
 
 .caja-imagen {
   width: 100%;
+}
+
+th {
+  /* tira los th a la derecha*/
+  text-align: left;
+}
+
+table, /* bordes*/
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+th, /* espacop entre cada columna y fila*/
+td {
+  padding: 15px;
+  text-align: left;
+}
+
+.canciones:hover {
+  background-color: #f8c794;
+}
+
+.discos:hover {
+  background-color: #e1acac;
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lista de Canciones</title>
+    <link
+      rel="stylesheet"
+      tpye="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondosCanciones">
+    <h1 class="centrado">Canciones:</h1>
+    <ul class="colorListaCanciones" style="list-style: none">
+      <table class="table">
+        <tr class="canciones">
+          <th>Nombre</th>
+          <!-- fila-->
+          <th>Artista</th>
+          <th>Album</th>
+          <th>Genero</th>
+        </tr>
+        {% for track in canciones %}
+        <tr class="canciones">
+          <td>{{ track['Nombre'] }}</td>
+          <!--Elemento-->
+          <td>{{ track['Artista'] }}</td>
+          <td>{{ track['Album'] }}</td>
+          <td>{{ track['Genero'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </ul>
+  </body>
+</html>

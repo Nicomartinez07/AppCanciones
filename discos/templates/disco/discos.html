@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Lista de discos</title>
+    <link
+      rel="stylesheet"
+      tpye="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondosDiscos">
+    <h1 class="centrado">Discos:</h1>
+    <ul class="colorListaDiscos" style="list-style: none">
+      <table class="table">
+        <tr class="discos">
+          <th>Disco</th>
+          <!-- fila-->
+          <th>Artista</th>
+          <th>cantCanciones</th>
+        </tr>
+        {% for album in discos %}
+        <tr class="discos">
+          <td>{{ album['Album'] }}</td>
+          <!--Elemento-->
+          <td>{{ album['Artista'] }}</td>
+          <td>{{ album['cantCanciones'] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </ul>
+  </body>
+</html>
