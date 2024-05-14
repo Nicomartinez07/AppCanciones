@@ -18,4 +18,4 @@ def discos():
 
     resultado = base_de_datos.execute(consulta)
     lista_de_resultados = resultado.fetchall()
-    return render_template("discos.html", discos=lista_de_resultados)
+    return render_template("disco/discos.html", discos=lista_de_resultados)

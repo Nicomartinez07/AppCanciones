@@ -10,6 +10,7 @@ def canciones():
     base_de_datos = db.get_db()
     consulta = """
         SELECT t.name AS Nombre, 
+            t.TrackId AS id, 
 	        ar.name AS Artista,
 	        a.Title AS Album, 
 	        g.name AS Genero
@@ -22,7 +23,7 @@ def canciones():
 
     resultado = base_de_datos.execute(consulta)
     lista_de_resultados = resultado.fetchall()
-    return render_template("canciones.html", canciones=lista_de_resultados)
+    return render_template("cancion/canciones.html", canciones=lista_de_resultados)
 
 
 #TENGO Q ARREGLAR 
@@ -35,7 +36,8 @@ def detalle(id):
 	        ar.name AS Artista,
 	        a.Title AS Album, 
 	        g.name AS Genero,
-	        strftime('%M:%S', t.Milliseconds / 1000, 'unixepoch') AS duracion
+	        strftime('%M:%S', t.Milliseconds / 1000, 'unixepoch') AS duracion,
+            t.Bytes AS byte
         FROM tracks t
         JOIN artists ar ON a.ArtistId = ar.ArtistId
         JOIN albums a ON t.AlbumId = a.AlbumId

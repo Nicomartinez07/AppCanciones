@@ -8,10 +8,6 @@ with app.app_context():
     from . import db
     db.init_app(app)
 
-@app.route('/')
-def hello():
-    return 'Que, tal!'
-
 #Icono de la pagina 
 @app.route('/favicon.ico')
 def favicon():
@@ -22,3 +18,5 @@ app.register_blueprint(discos.bp)
 
 from . import canciones
 app.register_blueprint(canciones.bp)
+
+app.add_url_rule('/', endpoint='canciones.canciones')

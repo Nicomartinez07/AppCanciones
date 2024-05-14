@@ -21,7 +21,7 @@
         </tr>
         {% for track in canciones %}
         <tr class="canciones">
-          <td>{{ track['Nombre'] }}</td>
+          <td><a class="action" href="{{ url_for('canciones.detalle', id=track['id']) }}">{{ track['Nombre'] }}</a></td>
           <!--Elemento-->
           <td>{{ track['Artista'] }}</td>
           <td>{{ track['Album'] }}</td>

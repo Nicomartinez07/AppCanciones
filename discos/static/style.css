@@ -51,3 +51,7 @@ td {
 .discos:hover {
   background-color: #e1acac;
 }
+
+a, a:visited {
+  color: blue;
+}
