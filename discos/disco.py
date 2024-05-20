@@ -46,3 +46,7 @@ def detalle(id):
     pagina = render_template("/disco/detalleDisco.html", 
                            disco=disco)
     return pagina
+
+
+# TENGO Q CREAR UNA CONSULTA MAS Y UNA LISTA DE CANCIONES POR CADA DISCO (COMO HICE EN ARTISTA
+# --> MUESTRA LOS DISCOS)

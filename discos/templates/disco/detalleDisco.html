@@ -9,18 +9,17 @@
     />
   </head>
   <body class="colorFondosCanciones">
-    <h1 class="centrado"> Album:</h1>
+    <h1 class="centrado"> Album: <td>{{ disco['Titulo'] }}</td></h1>
     <ul class="colorListaCanciones" style="list-style: none">
       <table class="table">
         <tr class="canciones">
-          <th>Titulo</th>
+
           <!-- fila-->
           <th>Artista</th>
         </tr>
 
         <tr class="canciones">
           <!--Titulo Album-->
-          <td>{{ disco['Titulo'] }}</td>
           <!--Nombre Artista-->
           <td>
             <a
@@ -28,6 +27,7 @@
               href="{{ url_for('artista.detalleArtista', id=disco['idA']) }}"
             >{{ disco['Artista'] }}</a>
           </td>
+          
         </tr>
       </table>
     </ul>
