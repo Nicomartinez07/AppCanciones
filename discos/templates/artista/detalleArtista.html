@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Detalle de artista</title>
+    <link
+      rel="stylesheet"
+      tpye="text/css"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="colorFondosCanciones">
+    <h1 class="centrado">Artista: {{ artist['Artista'] }}</h1>
+    <ul class="colorListaCanciones" style="list-style: none">
+      <table class="table">
+        <tr class="canciones">
+          <!-- fila-->
+          <th>Discos</th>
+        </tr>
+        {% for disco in listaDiscos %}
+          <tr class="canciones">
+            <td><a href="{{ url_for('disco.detalle', id=disco['idAl']) }}">
+              {{ disco['Disco'] }}</a></td>
+          </tr>
+        {% endfor %}  
+      </table>
+    </ul>
+  </body>
+</html>

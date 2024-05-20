@@ -13,8 +13,10 @@ with app.app_context():
 def favicon():
     return send_file('static/flavicon.ico')
 
-from . import cancion, disco
-app.register_blueprint(cancion.bp)
+from . import cancion, artista, genero, disco
 app.register_blueprint(disco.bp)
+app.register_blueprint(cancion.bp)
+app.register_blueprint(artista.bp)
+app.register_blueprint(genero.bp)
 
 app.add_url_rule('/', endpoint='cancion.canciones')
