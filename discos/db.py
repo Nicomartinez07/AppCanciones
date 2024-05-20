@@ -9,6 +9,12 @@ db_folder = current_app.instance_path
 db_name = 'discos.sqlite'
 db_file = os.path.join(db_folder,db_name)
 
+
+def dict_factory(cursor, row):
+    """Arma un diccionario con los valores de la fila."""
+    fields = [column[0] for column in cursor.description]
+    return {key: value for key, value in zip(fields, row)}
+
 #Conecta-Cierra base de datos -----------------------------------------------------------------------
 def get_db():
     if 'db' not in g:
@@ -16,7 +22,7 @@ def get_db():
             db_file,
             detect_types=sqlite3.PARSE_DECLTYPES
         )
-        g.db.row_factory = sqlite3.Row
+        g.db.row_factory = dict_factory
 
     return g.db
 
