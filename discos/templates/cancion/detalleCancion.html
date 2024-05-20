@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Lista de Canciones</title>
+    <title>Detalle de Canciones</title>
     <link
       rel="stylesheet"
       tpye="text/css"
@@ -12,7 +12,7 @@
     <h1 class="centrado">Canciones:</h1>
     <ul class="colorListaCanciones" style="list-style: none">
       <table class="table">
-        <tr class="canciones">
+        <tr class="cancion">
           <th>Nombre</th>
           <!-- fila-->
           <th>Artista</th>
@@ -23,10 +23,23 @@
         </tr>
         <tr class="canciones">
           <td>{{ track['Nombre'] }}</td>
-          <!--Elemento-->
-          <td>{{ track['Artista'] }}</td>
-          <td>{{ track['Album'] }}</td>
-          <td>{{ track['Genero'] }}</td>
+          <!--mostrar link artista-->
+          <td>
+            <a
+              class="action"
+              href="{{ url_for('artista.detalleArtista', id=track['idA']) }}"
+            >{{ track['Artista'] }}</a>
+          </td>
+          <!--mostrar link album-->
+          <td>
+            <a class="action" href="{{ url_for('disco.detalle', id=track['idD']) }}"
+            >{{ track['Album'] }}</a>
+          </td>
+          <!--mostrar link genero-->
+          <td>
+            <a class="action" href="{{ url_for('genero.detalleGenero', id=track['idG']) }}"
+            >{{ track['Genero'] }}</a>
+          </td>
           <td>{{ track['duracion'] }}</td>
           <td>{{ track['byte'] }}</td>
         </tr>

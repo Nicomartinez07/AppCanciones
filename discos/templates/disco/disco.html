@@ -21,15 +21,15 @@
         {% for album in discos %}
         <tr class="discos">
           <td>
-            <!--ARREGLAR PORQ NO FUNCIONA, EN EL /DISCOS NO MUESTRA UN ENLACE-->
             <a
               class="action"
-              href="{{ url_for('discos.detalle', id=album['Id']) }}"
-            ></a
-            >{{ album['Album'] }}
+              href="{{ url_for('disco.detalle', id=album['Id']) }}"
+            >
+            {{ album['Album'] }}</a>
           </td>
           <!--Elemento-->
-          <td>{{ album['Artista'] }}</td>
+          <td><a class="action" href="{{ url_for('artista.detalleArtista', id=album['idA']) }}"
+            >{{ album['Artista'] }}</a></td>
           <td>{{ album['cantCanciones'] }}</td>
         </tr>
         {% endfor %}

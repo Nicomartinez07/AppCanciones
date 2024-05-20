@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Lista de Canciones</title>
+    <title>Detalle de Album</title>
     <link
       rel="stylesheet"
       tpye="text/css"
@@ -9,7 +9,7 @@
     />
   </head>
   <body class="colorFondosCanciones">
-    <h1 class="centrado">Canciones:</h1>
+    <h1 class="centrado"> Album:</h1>
     <ul class="colorListaCanciones" style="list-style: none">
       <table class="table">
         <tr class="canciones">
@@ -19,9 +19,15 @@
         </tr>
 
         <tr class="canciones">
-          <td>{{ track['Titulo'] }}</td>
-          <!--Elemento-->
-          <td>{{ track['Nombre'] }}</td>
+          <!--Titulo Album-->
+          <td>{{ disco['Titulo'] }}</td>
+          <!--Nombre Artista-->
+          <td>
+            <a
+              class="action"
+              href="{{ url_for('artista.detalleArtista', id=disco['idA']) }}"
+            >{{ disco['Artista'] }}</a>
+          </td>
         </tr>
       </table>
     </ul>
