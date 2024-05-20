@@ -21,9 +21,22 @@
         </tr>
         {% for track in canciones %}
         <tr class="canciones">
-          <td><a class="action" href="{{ url_for('canciones.detalle', id=track['id']) }}">{{ track['Nombre'] }}</a></td>
+          <td>
+            <a
+              class="action"
+              href="{{ url_for('canciones.detalleCancion', id=track['id']) }}"
+              >{{ track['Nombre'] }}</a
+            >
+          </td>
           <!--Elemento-->
-          <td>{{ track['Artista'] }}</td>
+          <td>
+            <!--ARREGLAR PORQ NO FUNCIONA, EN EL /artista NO MUESTRA UN ENLACE-->
+            <a
+              class="action"
+              href="{{ url_for('canciones.detalleArtista', id=track['id']) }}"
+            ></a
+            >{{ track['Artista'] }}
+          </td>
           <td>{{ track['Album'] }}</td>
           <td>{{ track['Genero'] }}</td>
         </tr>

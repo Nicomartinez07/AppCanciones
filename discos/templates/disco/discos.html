@@ -20,7 +20,14 @@
         </tr>
         {% for album in discos %}
         <tr class="discos">
-          <td>{{ album['Album'] }}</td>
+          <td>
+            <!--ARREGLAR PORQ NO FUNCIONA, EN EL /DISCOS NO MUESTRA UN ENLACE-->
+            <a
+              class="action"
+              href="{{ url_for('discos.detalle', id=album['Id']) }}"
+            ></a
+            >{{ album['Album'] }}
+          </td>
           <!--Elemento-->
           <td>{{ album['Artista'] }}</td>
           <td>{{ album['cantCanciones'] }}</td>

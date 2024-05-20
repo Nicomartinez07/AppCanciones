@@ -26,10 +26,10 @@ def canciones():
     return render_template("cancion/canciones.html", canciones=lista_de_resultados)
 
 
-#TENGO Q ARREGLAR 
-#duracion, compositor, album, genero 
+ 
+#Detalle cancion 
 @bp.route('/detalle/<int:id>')
-def detalle(id):
+def detalleCancion(id):
     base_de_datos = db.get_db()
     consulta1 = """
         SELECT t.name AS Nombre,
@@ -51,5 +51,25 @@ def detalle(id):
     
     
     pagina = render_template("/cancion/detalleCancion.html", 
+                           track=cancion)
+    return pagina
+
+#Artista
+@bp.route('/detalle/<int:id>')
+def detalleArtista(id):
+    base_de_datos = db.get_db()
+    consulta1 = """
+        SELECT ar.name AS Artista,
+        ar.ArtistId AS id,
+        FROM artists ar
+        WHERE ar.ArtistId = ?;
+    """
+
+  
+    resultado = base_de_datos.execute(consulta1, (id,))
+    cancion = resultado.fetchone()
+    
+    
+    pagina = render_template("/cancion/detalleArtista.html", 
                            track=cancion)
     return pagina
