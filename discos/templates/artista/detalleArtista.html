@@ -8,21 +8,15 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
-  <body class="colorFondosCanciones">
+  <body class="colorFondos">
     <h1 class="centrado">Artista: {{ artist['Artista'] }}</h1>
-    <ul class="colorListaCanciones" style="list-style: none">
-      <table class="table">
-        <tr class="canciones">
-          <!-- fila-->
-          <th>Discos</th>
-        </tr>
+    <h2>Discos</h2>
+    <ul class="colorLista" style="list-style: none">
         {% for disco in listaDiscos %}
-          <tr class="canciones">
-            <td><a href="{{ url_for('disco.detalle', id=disco['idAl']) }}">
-              {{ disco['Disco'] }}</a></td>
-          </tr>
+        <li>
+          <a href="{{ url_for('disco.detalle', id=disco['idAl']) }}">{{ disco['Disco'] }}</a>
+        </li> 
         {% endfor %}  
-      </table>
     </ul>
   </body>
 </html>

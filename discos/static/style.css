@@ -1,18 +1,9 @@
-/*Discos ---------------------------------------------------------------------------------- */
-.colorListaDiscos {
-  background-color: #ca8787;
-}
-
-.colorFondosDiscos {
-  background-color: #e1acac;
-}
-
 /*Canciones ----------------------------------------------------------------------------------*/
-.colorListaCanciones {
-  background-color: #d8ae7e;
+.colorLista {
+  background-color: #f8c794;
 }
 
-.colorFondosCanciones {
+.colorFondos {
   background-color: #f8c794;
 }
 
@@ -20,11 +11,7 @@
   text-align: center;
 }
 
-/* imagen*/
-
-.caja-imagen {
-  width: 100%;
-}
+/*----------------------------------------------------------------------------------*/
 
 th {
   /* tira los th a la derecha*/
@@ -44,13 +31,10 @@ td {
   text-align: left;
 }
 
-.canciones:hover {
-  background-color: #f8c794;
+li{
+  list-style-type: circle
 }
 
-.discos:hover {
-  background-color: #e1acac;
-}
 
 a, a:visited {
   color: blue;

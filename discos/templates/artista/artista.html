@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Lista de discos</title>
+    <title>Lista de Artistas</title>
     <link
       rel="stylesheet"
       tpye="text/css"
@@ -9,28 +9,25 @@
     />
   </head>
   <body class="colorFondos">
-    <h1 class="centrado">Discos:</h1>
+    <h1 class="centrado">Artistas:</h1>
     <ul class="colorLista" style="list-style: none">
       <table class="table">
         <tr>
-          <th>Disco</th>
-          <!-- fila-->
           <th>Artista</th>
+          <!-- fila-->
+          <th>cantDiscos</th>
           <th>cantCanciones</th>
         </tr>
-        {% for album in discos %}
+        {% for artista in artistas %}
         <tr>
           <td>
             <a
               class="action"
-              href="{{ url_for('disco.detalle', id=album['Id']) }}"
-            >
-            {{ album['Album'] }}</a>
+              href="{{ url_for('artista.artistas', id=artista['aId']) }}"
+            >{{ artista['Artista'] }}</a>
           </td>
-          <!--Elemento-->
-          <td><a class="action" href="{{ url_for('artista.detalle', id=album['idA']) }}"
-            >{{ album['Artista'] }}</a></td>
-          <td>{{ album['cantCanciones'] }}</td>
+          <td>{{ artista['cantAlbums'] }}</td>
+          <td>{{ artista['cantCanciones'] }}</td>
         </tr>
         {% endfor %}
       </table>

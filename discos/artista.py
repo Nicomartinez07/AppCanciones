@@ -3,11 +3,32 @@ from . import db
 
 bp = Blueprint('artista', __name__, url_prefix='/artista')
 
+#CORREGIR PORQ MUESTRA LOS 2 NUMEROS IGUALES
+
+@bp.route('/')
+def artistas():
+    #genero disco artista duracion 
+    base_de_datos = db.get_db()
+    consulta = """
+        SELECT a.Name AS Artista, 
+               a.ArtistId AS aId, 
+               COUNT(al.AlbumId) AS cantAlbums, 
+               COUNT(t.TrackId) AS cantCanciones 
+        FROM artists a
+        JOIN albums al ON a.ArtistId = al.ArtistId
+        JOIN tracks t ON al.AlbumId = t.AlbumId
+        GROUP BY al.AlbumId
+        ORDER BY Artista
+    """
+
+    resultado = base_de_datos.execute(consulta)
+    lista_de_resultados = resultado.fetchall()
+    return render_template("artista/artista.html", artistas=lista_de_resultados)
 
 
 #Artista
-@bp.route('/detalleArtista/<int:id>')
-def detalleArtista(id):
+@bp.route('/detalle/<int:id>')
+def detalle(id):
     base_de_datos = db.get_db()
     consulta1 = """
         SELECT ar.name AS Artista,

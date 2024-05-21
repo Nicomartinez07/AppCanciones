@@ -32,7 +32,7 @@ def canciones():
  
 #Detalle cancion 
 @bp.route('/detalle/<int:id>')
-def detalleCancion(id):
+def detalle(id):
     base_de_datos = db.get_db()
     consulta1 = """
         SELECT t.name AS Nombre,

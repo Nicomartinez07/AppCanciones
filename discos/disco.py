@@ -29,7 +29,7 @@ def discos():
 @bp.route('/detalle/<int:id>')
 def detalle(id):
     base_de_datos = db.get_db()
-    consulta = """
+    consulta1 = """
         SELECT a.Title AS Titulo, 
                 ar.name AS Artista,
                 ar.ArtistId AS idA
@@ -37,16 +37,26 @@ def detalle(id):
         JOIN artists ar ON a.ArtistId = ar.ArtistId
         WHERE a.AlbumId = ?;
     """
+    consulta2 = """
+        SELECT t.name AS Cancion ,
+                t.TrackId AS tId
+        FROM tracks t
+        JOIN albums a ON t.AlbumId = a.AlbumId
+        WHERE a.AlbumId  = ?;
+    """
 
   
-    resultado = base_de_datos.execute(consulta, (id,))
-    disco = resultado.fetchone()
+    resultado = base_de_datos.execute(consulta1, (id,)).fetchone()
+    artista = { "nombre" : resultado["Artista"], "id": resultado["idA"]}
+    disco = resultado["Titulo"] 
+    resultado = base_de_datos.execute(consulta2, (id,))
+    lista_canciones = resultado.fetchall()
     
     
     pagina = render_template("/disco/detalleDisco.html", 
-                           disco=disco)
+                           disco=disco,
+                           artista=artista,
+                           listaCanciones=lista_canciones)
     return pagina
 
 
-# TENGO Q CREAR UNA CONSULTA MAS Y UNA LISTA DE CANCIONES POR CADA DISCO (COMO HICE EN ARTISTA
-# --> MUESTRA LOS DISCOS)

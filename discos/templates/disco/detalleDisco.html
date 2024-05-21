@@ -8,28 +8,17 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
-  <body class="colorFondosCanciones">
-    <h1 class="centrado"> Album: <td>{{ disco['Titulo'] }}</td></h1>
-    <ul class="colorListaCanciones" style="list-style: none">
-      <table class="table">
-        <tr class="canciones">
-
-          <!-- fila-->
-          <th>Artista</th>
-        </tr>
-
-        <tr class="canciones">
-          <!--Titulo Album-->
-          <!--Nombre Artista-->
-          <td>
-            <a
-              class="action"
-              href="{{ url_for('artista.detalleArtista', id=disco['idA']) }}"
-            >{{ disco['Artista'] }}</a>
-          </td>
-          
-        </tr>
-      </table>
+  <body class="colorFondos">
+    <h1 class="centrado"> <td>{{ disco }} - 
+      <a href= "{{ url_for('artista.detalle', id=artista['id']) }}">{{ artista['nombre'] }}</a></td>
+    </h1>
+    <h2>Canciones</h2>
+    <ul class="colorLista" style="list-style: none">
+          {% for cancion in listaCanciones %}
+          <li>
+            <a href="{{ url_for('cancion.detalle', id=cancion['tId']) }}">{{ cancion['Cancion'] }}</a>
+          </li>
+          {% endfor %}  
     </ul>
   </body>
 </html>

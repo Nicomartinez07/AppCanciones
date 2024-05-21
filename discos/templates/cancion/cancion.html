@@ -8,11 +8,11 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
-  <body class="colorFondosCanciones">
+  <body class="colorFondos">
     <h1 class="centrado">Canciones:</h1>
-    <ul class="colorListaCanciones" style="list-style: none">
+    <ul class="colorLista" style="list-style: none">
       <table class="table">
-        <tr class="canciones">
+        <tr>
           <th>Nombre</th>
           <!-- fila-->
           <th>Artista</th>
@@ -20,11 +20,11 @@
           <th>Genero</th>
         </tr>
         {% for track in canciones %}
-        <tr class="canciones">
+        <tr>
           <td>
             <a
               class="action"
-              href="{{ url_for('cancion.detalleCancion', id=track['idC']) }}"
+              href="{{ url_for('cancion.detalle', id=track['idC']) }}"
               >{{ track['Nombre'] }}</a
             >
           </td>
@@ -32,13 +32,13 @@
           <td>
             <a
               class="action"
-              href="{{ url_for('artista.detalleArtista', id=track['idA']) }}"
+              href="{{ url_for('artista.detalle', id=track['idA']) }}"
             >{{ track['Artista'] }}</a>
           </td>
           <td>
             <a class="action" href="{{ url_for('disco.detalle', id=track['idD']) }}">{{ track['Album'] }}</a></td>
           <td>
-            <a class="action" href="{{ url_for('genero.detalleGenero', id=track['idG']) }}"
+            <a class="action" href="{{ url_for('genero.detalle', id=track['idG']) }}"
             >{{ track['Genero'] }}</a>
           </td>
         </tr>

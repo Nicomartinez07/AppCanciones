@@ -8,18 +8,15 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
-  <body class="colorFondosCanciones">
-    <h1 class="centrado">Genero:</h1>
-    <ul class="colorListaCanciones" style="list-style: none">
-      <table class="table">
-        <tr class="canciones">
-          <th>Genero</th>
-        </tr>
-        <tr class="canciones">
-            <!-- preguntar si va track[] o genero[]-->
-          <td>{{ genre['Nombre'] }}</td>
-        </tr>
-      </table>
+  <body class="colorFondos">
+    <h1 class="centrado">{{ genero['Nombre'] }}</h1>
+    <h2>Canciones de este genero:</h2>
+    <ul class="colorLista " style="list-style: none">
+        {% for cancion in listaCanciones %}
+            <li>
+              <a href="{{ url_for('cancion.detalle', id=cancion['tId']) }}">{{ cancion['Cancion'] }}</a>
+            </li>
+        {% endfor %}  
     </ul>
   </body>
 </html>
