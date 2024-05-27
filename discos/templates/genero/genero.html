@@ -1,0 +1,26 @@
+{% extends "base.html" %} 
+
+{% block title %}Lista de Generos{% endblock %}
+
+{%block content %}
+  <h1 class="centrado">Generos:</h1>
+  <ul class="colorLista" style="list-style: none">
+    <table id="genero" class="table">
+      <tr>
+        <th>Genero</th>
+        <th>cantCanciones</th>
+      </tr>
+      {% for genero in generos %}
+      <tr>
+        <td>
+          <a
+            class="action"
+            href="{{ url_for('genero.detalle', id=genero['idG']) }}"
+            >{{ genero['Genero'] }}</a>
+        </td>
+        <td>{{ genero['cantCanciones'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </ul>
+{% endblock %}

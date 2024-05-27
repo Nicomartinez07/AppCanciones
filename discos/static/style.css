@@ -35,12 +35,53 @@ li{
   list-style-type: circle
 }
 
+a:hover {
+  color: red;
+  text-decoration: underline;
+  font-size:110%;
+}
 
-a, a:visited {
+a {
   color: blue;
+  text-decoration: none;
 }
 
 
 .scroll{
   scroll-behavior: smooth;
+}
+
+
+.flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+h1 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+
+#genero {
+  height: 200px;
+  background-color: #f8c794; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #3bf5f5, #f3b229);
+}
+
+#cancion {
+  height: 200px;
+  background-color: #f8c794; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #FFB6B9, #BBDED6);
+}
+
+#disco {
+  height: 200px;
+  background-color: #f8c794; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #824D74, #FFCDEA);
+}
+
+#artista {
+  height: 200px;
+  background-color: #f8c794; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to bottom right, #787878, #f2f2f2);
 }

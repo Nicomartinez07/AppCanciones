@@ -4,6 +4,25 @@ from . import db
 bp = Blueprint('genero', __name__, url_prefix='/genero')
 
 
+@bp.route('/')
+def generos():
+    #genero disco artista duracion 
+    base_de_datos = db.get_db()
+    consulta = """
+        SELECT g.Name AS Genero,
+		        count(t.TrackId) AS cantCanciones,
+                g.GenreId AS idG
+        FROM genres g
+        JOIN tracks t ON g.GenreId = t.GenreId
+        GROUP BY g.GenreId
+    """
+
+    resultado = base_de_datos.execute(consulta)
+    lista_de_resultados = resultado.fetchall()
+    return render_template("genero/genero.html", generos=lista_de_resultados)
+
+
+
 #Genero
 @bp.route('/detalle/<int:id>')
 def detalle(id):

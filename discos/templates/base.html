@@ -8,7 +8,14 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
+  <header class="flex">
+    <a href="{{ url_for('cancion.canciones') }}">Canciones</a>
+    <a href="{{ url_for('disco.discos') }}">Discos</a>
+    <a href="{{ url_for('artista.artistas') }}">Artistas</a>
+    <a href="{{ url_for('genero.generos') }}">Generos</a>
+  </header>
   <body class="colorFondos scroll">
     {% block content %}{% endblock %}
   </body>
+  <footer class="centrado">Hecho por: <a href="https://github.com/Nicomartinez07">Nicolas Martinez</a></footer>
 </html>
