@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Detalle de Album</title>
-    <link
-      rel="stylesheet"
-      tpye="text/css"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body class="colorFondos">
+{% extends "base.html" %} 
+
+{% block title %}Detalle de Album{% endblock %}
+
+{% block content %}
     <h1 class="centrado"> <td>{{ disco }} - 
       <a href= "{{ url_for('artista.detalle', id=artista['id']) }}">{{ artista['nombre'] }}</a></td>
     </h1>
@@ -20,5 +14,4 @@
           </li>
           {% endfor %}  
     </ul>
-  </body>
-</html>
+{% endblock %}

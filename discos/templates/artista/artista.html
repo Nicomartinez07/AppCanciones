@@ -1,36 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Lista de Artistas</title>
-    <link
-      rel="stylesheet"
-      tpye="text/css"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body class="colorFondos">
-    <h1 class="centrado">Artistas:</h1>
-    <ul class="colorLista" style="list-style: none">
-      <table class="table">
-        <tr>
-          <th>Artista</th>
-          <!-- fila-->
-          <th>cantDiscos</th>
-          <th>cantCanciones</th>
-        </tr>
-        {% for artista in artistas %}
-        <tr>
-          <td>
-            <a
-              class="action"
-              href="{{ url_for('artista.artistas', id=artista['aId']) }}"
-            >{{ artista['Artista'] }}</a>
-          </td>
-          <td>{{ artista['cantAlbums'] }}</td>
-          <td>{{ artista['cantCanciones'] }}</td>
-        </tr>
-        {% endfor %}
-      </table>
-    </ul>
-  </body>
-</html>
+{% extends "base.html" %} 
+
+{% block title %}Lista de Artistas{% endblock %}
+
+{%block content %}
+  <h1 class="centrado">Artistas:</h1>
+  <ul class="colorLista" style="list-style: none">
+    <table class="table">
+      <tr>
+        <th>Artista</th>
+        <!-- fila-->
+        <th>cantDiscos</th>
+        <th>cantCanciones</th>
+      </tr>
+      {% for artista in artistas %}
+      <tr>
+        <td>
+          <a
+            class="action"
+            href="{{ url_for('artista.artistas', id=artista['aId']) }}"
+            >{{ artista['Artista'] }}</a
+          >
+        </td>
+        <td>{{ artista['cantAlbums'] }}</td>
+        <td>{{ artista['cantCanciones'] }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  </ul>
+{% endblock %}

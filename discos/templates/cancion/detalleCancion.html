@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Detalle de Canciones</title>
-    <link
-      rel="stylesheet"
-      tpye="text/css"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body class="colorFondos">
+{% extends "base.html" %} 
+
+{% block title %}Detalle de Canciones{% endblock %}
+
+{% block content %}
     <h1 class="centrado">{{ track['Nombre'] }} - 
       <a
       class="action"
@@ -40,5 +34,4 @@
         </tr>
       </table>
     </ul>
-  </body>
-</html>
+{% endblock %}

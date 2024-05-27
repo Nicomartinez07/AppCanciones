@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Detalle de genero</title>
-    <link
-      rel="stylesheet"
-      tpye="text/css"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body class="colorFondos">
+{% extends "base.html" %} 
+
+{% block title %}Detalle de genero{% endblock %}
+
+{% block content %}   
     <h1 class="centrado">{{ genero['Nombre'] }}</h1>
     <h2>Canciones de este genero:</h2>
     <ul class="colorLista " style="list-style: none">
@@ -18,5 +12,4 @@
             </li>
         {% endfor %}  
     </ul>
-  </body>
-</html>
+{% endblock %}

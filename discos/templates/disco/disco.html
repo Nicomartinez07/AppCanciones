@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Lista de discos</title>
-    <link
-      rel="stylesheet"
-      tpye="text/css"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-  </head>
-  <body class="colorFondos">
+{% extends "base.html" %} 
+
+
+{% block title %}Lista de discos{% endblock %}
+
+{% block content %}
     <h1 class="centrado">Discos:</h1>
     <ul class="colorLista" style="list-style: none">
       <table class="table">
@@ -35,5 +30,4 @@
         {% endfor %}
       </table>
     </ul>
-  </body>
-</html>
+{% endblock %}

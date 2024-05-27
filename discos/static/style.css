@@ -39,3 +39,8 @@ li{
 a, a:visited {
   color: blue;
 }
+
+
+.scroll{
+  scroll-behavior: smooth;
+}
