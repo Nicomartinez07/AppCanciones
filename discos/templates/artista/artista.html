@@ -2,6 +2,8 @@
 
 {% block title %}Lista de Artistas{% endblock %}
 
+{% block color %}colorArtistas{% endblock %}
+
 {%block content %}
   <h1 class="centrado">Artistas:</h1>
   <ul class="colorLista" style="list-style: none">
@@ -17,7 +19,7 @@
         <td>
           <a
             class="action"
-            href="{{ url_for('artista.artistas', id=artista['aId']) }}"
+            href="{{ url_for('artista.detalle', id=artista['aId']) }}"
             >{{ artista['Artista'] }}</a
           >
         </td>

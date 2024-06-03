@@ -1,10 +1,18 @@
 /*Canciones ----------------------------------------------------------------------------------*/
-.colorLista {
-  background-color: #f8c794;
+.colorCanciones {
+  background-color: #FFB6B9;
 }
 
-.colorFondos {
-  background-color: #f8c794;
+.colorArtistas {
+  background-color: #787878;
+}
+
+.colorDisco {
+  background-color: #824D74;
+}
+
+.colorGenero {
+  background-color: #3bf5f5;
 }
 
 .centrado {
@@ -62,9 +70,11 @@ h1 {
   text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
 }
 
+/*----------------------------------------------------------------------------------*/
+
 #genero {
   height: 200px;
-  background-color: #f8c794; /* For browsers that do not support gradients */
+  background-color: #3bf5f5; /* For browsers that do not support gradients */
   background-image: linear-gradient(to bottom right, #3bf5f5, #f3b229);
 }
 
@@ -82,6 +92,6 @@ h1 {
 
 #artista {
   height: 200px;
-  background-color: #f8c794; /* For browsers that do not support gradients */
+  background-color: #787878; /* For browsers that do not support gradients */
   background-image: linear-gradient(to bottom right, #787878, #f2f2f2);
 }

@@ -2,6 +2,8 @@
 
 {% block title %}Detalle de Album{% endblock %}
 
+{% block color %}colorDisco{% endblock %}
+
 {% block content %}
     <h1 class="centrado"> <td>{{ disco }} - 
       <a href= "{{ url_for('artista.detalle', id=artista['id']) }}">{{ artista['nombre'] }}</a></td>
