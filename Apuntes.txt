@@ -1,0 +1,29 @@
+
+Un template es un archivo el cual sirve para darle un estilo final a la paginita, tiene tanto data 
+dinamica como estatica. 
+
+Un .sql es la base de datos la cual contiene toda la informacion de la tabla 
+
+Un blue print es un plano para organizar porciones de codigo, para que el codigo no este cargado en la 
+funcion principal de la aplicacion sino que se llame y sea utilizado solo cuando se necesite
+
+Los archivos estaticos (flavicon, style) son archivos que no se modifican en ningun momento del correr la 
+aplicacion, por ejemplo el CSS
+
+----------------------------------------------------------------------------------------------------------
+COMIT: Cree blueprints , y pagina de detalle, tambien una tabla
+
+Cree un blueprint para cada pagina (cancion, artista, discos) para que las rutas no esten todas juntas 
+en el __init__.py.
+
+----------------------------------------------------------------------------------------------------------
+COMIT: Agregue detalle de disco
+
+Cree su respectivo detalle (con tabla) y HTML a cada pagina
+
+-----------------------------------------------------------------------------------------------------------
+COMIT: Agregue la funcion para poder ver mejor los resultados de las consultas
+
+La funcion que me faltaba desde el flask, para visualizar mejor las consutlas en la terminal
+
+------------------------------------------------------------------------------------------------------------
