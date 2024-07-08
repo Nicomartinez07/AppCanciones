@@ -1,19 +1,23 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% block title %}Detalle de Album{% endblock %} {%
+block color %}colorDisco{% endblock %} {% block content %}
+<h1 class="centrado">
+  <td>
+    {{ disco['titulo'] }} -
+    <a href="{{ url_for('artista.detalle', id=artista['id']) }}"
+      >{{ artista['nombre'] }}</a
+    >
+  </td>
+</h1>
+<a href="{{ url_for('cancion.nueva', albumid=disco['id'])}}">Agregar Cancion</a>
+<h2>Canciones</h2>
+<ul class="colorLista" style="list-style: none">
+  {% for cancion in listaCanciones %}
+  <li>
+    <a href="{{ url_for('cancion.detalle', id=cancion['tId']) }}"
+      >{{ cancion['Cancion'] }}</a
+    >
+  </li>
+  {% endfor %}
+</ul>
 
-{% block title %}Detalle de Album{% endblock %}
-
-{% block color %}colorDisco{% endblock %}
-
-{% block content %}
-    <h1 class="centrado"> <td>{{ disco }} - 
-      <a href= "{{ url_for('artista.detalle', id=artista['id']) }}">{{ artista['nombre'] }}</a></td>
-    </h1>
-    <h2>Canciones</h2>
-    <ul class="colorLista" style="list-style: none">
-          {% for cancion in listaCanciones %}
-          <li>
-            <a href="{{ url_for('cancion.detalle', id=cancion['tId']) }}">{{ cancion['Cancion'] }}</a>
-          </li>
-          {% endfor %}  
-    </ul>
 {% endblock %}

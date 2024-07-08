@@ -1,5 +1,6 @@
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request, redirect, url_for, flash
 from . import db
+
 
 bp = Blueprint('cancion', __name__, url_prefix='/cancion')
 
@@ -20,7 +21,7 @@ def canciones():
         FROM tracks t
         JOIN artists ar ON a.ArtistId = ar.ArtistId
         JOIN albums a ON t.AlbumId = a.AlbumId
-        JOIN genres g ON t.GenreId = g.GenreId
+        LEFT JOIN genres g ON t.GenreId = g.GenreId
         ORDER BY Nombre DESC;
     """
 
@@ -61,3 +62,28 @@ def detalle(id):
     return pagina
 
 
+@bp.route('/<int:albumid>/nueva', methods=('GET', 'POST'))
+def nueva(albumid):
+    if request.method == 'POST':
+        name = request.form['name']
+        artist = request.form['artist']
+        genre = request.form['genre']
+        error = None
+
+        if not name:
+            error = 'Se requiere el nombre.'
+
+        if error is not None:
+            flash(error)
+        else:
+            base = db.get_db()
+            base.execute(
+                'INSERT INTO tracks (Name, Composer, albumid)'
+                'VALUES (?, ?, ?)',
+                (name, artist, albumid) # genre)
+            )
+            base.commit()
+            return redirect(url_for('disco.detalle', id=albumid))
+    #SELECT DE GENEROS ID Y NOMBRE Y PASAR EN EL RENDER TEMPLATE
+
+    return render_template('cancion/nueva_cancion.html')

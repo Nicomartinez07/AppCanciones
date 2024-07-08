@@ -32,6 +32,7 @@ def detalle(id):
     consulta1 = """
         SELECT a.Title AS Titulo, 
                 ar.name AS Artista,
+                a.AlbumId,
                 ar.ArtistId AS idA
         FROM albums a
         JOIN artists ar ON a.ArtistId = ar.ArtistId
@@ -48,7 +49,7 @@ def detalle(id):
   
     resultado = base_de_datos.execute(consulta1, (id,)).fetchone()
     artista = { "nombre" : resultado["Artista"], "id": resultado["idA"]}
-    disco = resultado["Titulo"] 
+    disco = { "titulo" :  resultado["Titulo"], "id": resultado["AlbumId"]}
     resultado = base_de_datos.execute(consulta2, (id,))
     lista_canciones = resultado.fetchall()
     

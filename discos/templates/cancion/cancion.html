@@ -1,44 +1,48 @@
-{% extends "base.html" %} 
-
-{% block title %}Lista de Canciones{% endblock %}
-
-{% block color %}colorCanciones{% endblock %}
-
-{% block content %}
-    <h1 class="centrado">Canciones:</h1>
-    <ul class="colorLista" style="list-style: none">
-      <table id="cancion" class="table">
-        <tr>
-          <th>Nombre</th>
-          <!-- fila-->
-          <th>Artista</th>
-          <th>Album</th>
-          <th>Genero</th>
-        </tr>
-        {% for track in canciones %}
-        <tr>
-          <td>
-            <a
-              class="action"
-              href="{{ url_for('cancion.detalle', id=track['idC']) }}"
-              >{{ track['Nombre'] }}</a
-            >
-          </td>
-          <!--Elemento-->
-          <td>
-            <a
-              class="action"
-              href="{{ url_for('artista.detalle', id=track['idA']) }}"
-            >{{ track['Artista'] }}</a>
-          </td>
-          <td>
-            <a class="action" href="{{ url_for('disco.detalle', id=track['idD']) }}">{{ track['Album'] }}</a></td>
-          <td>
-            <a class="action" href="{{ url_for('genero.detalle', id=track['idG']) }}"
-            >{{ track['Genero'] }}</a>
-          </td>
-        </tr>
-        {% endfor %}
-      </table>
-    </ul> 
+{% extends "base.html" %} {% block title %}Lista de Canciones{% endblock %} {%
+block color %}colorCanciones{% endblock %} {% block content %}
+<h1 class="centrado">Canciones:</h1>
+<ul class="colorLista" style="list-style: none">
+  <table id="cancion" class="table">
+    <tr>
+      <th>Nombre</th>
+      <!-- fila-->
+      <th>Artista</th>
+      <th>Album</th>
+      <th>Genero</th>
+    </tr>
+    {% for track in canciones %}
+    <tr>
+      <td>
+        <a
+          class="action"
+          href="{{ url_for('cancion.detalle', id=track['idC']) }}"
+          >{{ track['Nombre'] }}</a
+        >
+      </td>
+      <!--Elemento-->
+      <td>
+        <a
+          class="action"
+          href="{{ url_for('artista.detalle', id=track['idA']) }}"
+          >{{ track['Artista'] }}</a
+        >
+      </td>
+      <td>
+        <a class="action" href="{{ url_for('disco.detalle', id=track['idD']) }}"
+          >{{ track['Album'] }}</a
+        >
+      </td>
+      <td>
+        {%if track['idG'] == None %} - {% else %}
+        <a
+          class="action"
+          href="{{ url_for('genero.detalle', id=track['idG']) }}"
+          >{{ track['Genero'] }}</a
+        >
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+</ul>
 {% endblock %}

@@ -24,16 +24,15 @@ CREATE TABLE IF NOT EXISTS "tracks" (
 	"TrackId"	INTEGER NOT NULL,
 	"Name"	NVARCHAR(200) NOT NULL,
 	"AlbumId"	INTEGER,
-	"MediaTypeId"	INTEGER NOT NULL,
+	"MediaTypeId"	INTEGER,
 	"GenreId"	INTEGER,
 	"Composer"	NVARCHAR(220),
-	"Milliseconds"	INTEGER NOT NULL,
+	"Milliseconds"	INTEGER NOT NULL DEFAULT 0,
 	"Bytes"	INTEGER,
-	"UnitPrice"	NUMERIC(10, 2) NOT NULL,
+	"UnitPrice"	NUMERIC(10, 2) NOT NULL DEFAULT 0.99,
 	FOREIGN KEY("AlbumId") REFERENCES "albums"("AlbumId") ON DELETE NO ACTION ON UPDATE NO ACTION,
 	PRIMARY KEY("TrackId" AUTOINCREMENT),
-	FOREIGN KEY("GenreId") REFERENCES "genres"("GenreId") ON DELETE NO ACTION ON UPDATE NO ACTION,
-	FOREIGN KEY("MediaTypeId") REFERENCES "media_types"("MediaTypeId") ON DELETE NO ACTION ON UPDATE NO ACTION
+	FOREIGN KEY("GenreId") REFERENCES "genres"("GenreId") ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 INSERT INTO "albums" ("AlbumId","Title","ArtistId") VALUES (1,'For Those About To Rock We Salute You',1),
  (2,'Balls to the Wall',2),

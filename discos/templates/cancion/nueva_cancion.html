@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% block header %}
+<h1>{% block title %}Nueva Cancion{% endblock %}</h1>
+{% endblock %} {% block color %}colorDisco{% endblock %} {% block content %}
+<form method="post">
+  <label for="name">Titulo: </label>
+  <input
+    type="text"
+    name="name"
+    id="name"
+    value="{{ request.form['name'] }}"
+    required
+  />
+  <label for="artist">Artista:</label>
+  <input
+    type="text"
+    name="artist"
+    id="artist"
+    value="{{ request.form['artist'] }}"
+    required
+  />
+  <input type="submit" value="Guardar" />
+</form>
+{% endblock %}
